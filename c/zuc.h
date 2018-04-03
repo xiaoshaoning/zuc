@@ -1,6 +1,7 @@
 #ifndef __ZUC_H__
 #define __ZUC_H__
 #include <inttypes.h>
+#include <stddef.h>
 #ifdef __cplusplus
 extern "C" {
 #endif

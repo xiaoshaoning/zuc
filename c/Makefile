@@ -1,6 +1,4 @@
-main.exe: zuc.c main.c zuc.h 
-    cl /nologo /Ox /Oi /Os /favor:INTEL64 /arch:AVX2 /Gr /Qpar /Za /Wall  main.c zuc.c
+zuc: zuc.c main.c zuc.h 
+	gcc zuc.c main.c -o zuc -I.
 clean:
-    del *.obj *.exe
-test: main.exe
-    .\main.exe
+	rm zuc

@@ -1,0 +1,33 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+D	zuc.c	/^static const uint16_t D[16] = {$/;"	v	file:
+S0	zuc.c	/^static const uint8_t S0[256] = {$/;"	v	file:
+S1	zuc.c	/^static const uint8_t S1[256] = {$/;"	v	file:
+__ZUC_H__	zuc.h	2;"	d
+addition_uint31	zuc.c	/^static inline uint32_t addition_uint31(const uint32_t a, const uint32_t b)$/;"	f	file:
+bit_reorganization	zuc.c	/^static inline void bit_reorganization(pzuc_context context)$/;"	f	file:
+f	zuc.c	/^static uint32_t f(pzuc_context context)$/;"	f	file:
+l1	zuc.c	/^static inline uint32_t l1(const uint32_t x)$/;"	f	file:
+l2	zuc.c	/^static inline uint32_t l2(const uint32_t x)$/;"	f	file:
+lfsr	zuc.h	/^    uint32_t lfsr[16];  \/\/ The state registers of LFSR.$/;"	m	struct:__anon1
+lfsr_append	zuc.c	/^static inline void lfsr_append(uint32_t lfsr[16], const uint32_t f) {$/;"	f	file:
+lfsr_init	zuc.c	/^static inline void lfsr_init(uint32_t lfsr[16], const uint32_t u)$/;"	f	file:
+lfsr_next	zuc.c	/^static uint32_t lfsr_next(const uint32_t lfsr[16]) {$/;"	f	file:
+lfsr_shift	zuc.c	/^static inline void lfsr_shift(uint32_t lfsr[16]) {$/;"	f	file:
+main	main.c	/^int main(void) {$/;"	f
+make_uint31	zuc.c	/^static inline uint32_t make_uint31(const uint8_t a, const uint16_t b, const uint8_t c)$/;"	f	file:
+make_uint32	zuc.c	/^static inline uint32_t make_uint32(const uint8_t a, const uint8_t b, const uint8_t c, const uint8_t d)$/;"	f	file:
+pzuc_context	zuc.h	/^} zuc_context, *pzuc_context;$/;"	t	typeref:struct:__anon1
+r	zuc.h	/^    uint32_t r[2];      \/\/ The registers of F.$/;"	m	struct:__anon1
+rotl_uint31	zuc.c	/^static inline uint32_t rotl_uint31(const uint32_t a, const uint32_t shift)$/;"	f	file:
+rotl_uint32	zuc.c	/^static inline uint32_t rotl_uint32(const uint32_t a, const uint32_t shift)$/;"	f	file:
+rotl_uint32	zuc.c	71;"	d	file:
+x	zuc.h	/^    uint32_t x[4];      \/\/ The outputs of the bit-reorganization.$/;"	m	struct:__anon1
+zuc_context	zuc.h	/^} zuc_context, *pzuc_context;$/;"	t	typeref:struct:__anon1
+zuc_encrypt	zuc.c	/^void zuc_encrypt(pzuc_context context, size_t length, const uint8_t* in, uint8_t* out) {$/;"	f
+zuc_generate_keystream	zuc.c	/^void zuc_generate_keystream(pzuc_context context, uint32_t keystream_buffer[], const size_t keystream_length) {$/;"	f
+zuc_init	zuc.c	/^void zuc_init(pzuc_context context, const uint8_t* key, const uint8_t* iv)$/;"	f

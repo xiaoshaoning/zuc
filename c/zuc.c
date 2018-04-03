@@ -1,6 +1,6 @@
 #include "zuc.h"
 #if defined(_M_IX86) || defined(_M_X64)
-#   include <immintrin.h>
+#include <immintrin.h>
 #endif
 #include <string.h>
 #include <stdlib.h>
@@ -163,23 +163,26 @@ static inline void bit_reorganization(pzuc_context context)
 // Init ZUC Cipher.
 void zuc_init(pzuc_context context, const uint8_t* key, const uint8_t* iv)
 {
+    uint64_t i;
+    uint32_t w;
     // Expand key.
-    for (uint64_t i = 0; i < 16; ++i) {
+    for (i = 0; i < 16; ++i) {
         context->lfsr[i] = make_uint31(key[i], D[i], iv[i]);
     }
     memset(context->r, 0, 2 * sizeof(uint32_t));
-    for (uint64_t i = 0; i < 32; ++i) {
+    for (i = 0; i < 32; ++i) {
         bit_reorganization(context);
-        const uint32_t w = f(context);
+        w = f(context);
         lfsr_init(context->lfsr, w >> 1);
     }
 }
 
 void zuc_generate_keystream(pzuc_context context, uint32_t keystream_buffer[], const size_t keystream_length) {
+    uint64_t i;
     bit_reorganization(context);
     f(context); // Discard the output of F.
     lfsr_shift(context->lfsr);
-    for (uint64_t i = 0; i < keystream_length; ++i) {
+    for (i = 0; i < keystream_length; ++i) {
         bit_reorganization(context);
         keystream_buffer[i] = f(context) ^ context->x[3];
         lfsr_shift(context->lfsr);
@@ -188,11 +191,13 @@ void zuc_generate_keystream(pzuc_context context, uint32_t keystream_buffer[], c
 
 void zuc_encrypt(pzuc_context context, size_t length, const uint8_t* in, uint8_t* out) {
     uint8_t buffer[4];
+    uint64_t i;
+    size_t buffer_index;
     bit_reorganization(context);
     f(context); // Discard the output of F.
     lfsr_shift(context->lfsr);
-    for (uint64_t i = 0; i < length; ++i) {
-        const size_t buffer_index = i % 4;
+    for (i = 0; i < length; ++i) {
+        buffer_index = i % 4;
         if (buffer_index == 0) {
             bit_reorganization(context);
             *(uint32_t *)buffer = f(context) ^ context->x[3];
